@@ -8,6 +8,16 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    
+    
+    @IBOutlet weak var lblPrice: UILabel!
+    @IBOutlet weak var lblVenue: UILabel!
+    @IBOutlet weak var lblDescription: UITextView!
+    @IBOutlet weak var lblName: UILabel!
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
