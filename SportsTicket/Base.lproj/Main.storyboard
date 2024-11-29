@@ -109,6 +109,7 @@
                         <color key="backgroundColor" red="0.91752577319587625" green="0.86586190490222381" blue="0.74265396266040884" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="imageSport" destination="2Gz-fM-xlA" id="fI2-2u-Q3c"/>
                         <outlet property="lblDescription" destination="7Aj-yG-Fm6" id="6t8-E7-ZsN"/>
                         <outlet property="lblName" destination="bN0-sg-4GK" id="bnY-PJ-tX1"/>
                         <outlet property="lblPrice" destination="jw4-cd-Jpz" id="xOw-P5-tgq"/>

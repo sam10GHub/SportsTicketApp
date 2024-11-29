@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var lblDescription: UITextView!
     @IBOutlet weak var lblName: UILabel!
     
+    @IBOutlet weak var imageSport: UIImageView!
     
     
 
