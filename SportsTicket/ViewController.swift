@@ -16,6 +16,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var imageSport: UIImageView!
+    @IBOutlet weak var buyNowButton: UIButton!
+    @IBOutlet weak var nextEventButton: UIButton!
+    @IBOutlet weak var websiteButton: UIButton!
     
     private var currentEventIndex = 0
     private var events: [Event] = []
@@ -84,13 +87,24 @@ class ViewController: UIViewController {
     private func displayCurrentEvent() {
         let event = events[currentEventIndex]
         
-        // Apply shadow and corner radius to image
+        // Create a container view for the image
+        let containerView = UIView()
+        containerView.layer.cornerRadius = 15
+        containerView.layer.shadowColor = UIColor.black.cgColor
+        containerView.layer.shadowOffset = CGSize(width: 0, height: 2)
+        containerView.layer.shadowRadius = 4
+        containerView.layer.shadowOpacity = 0.3
+
         imageSport.layer.cornerRadius = 15
-        imageSport.layer.shadowColor = UIColor.black.cgColor
-        imageSport.layer.shadowOffset = CGSize(width: 0, height: 2)
-        imageSport.layer.shadowRadius = 4
-        imageSport.layer.shadowOpacity = 0.3
         imageSport.clipsToBounds = true
+
+        // Add the image view to the container
+        containerView.addSubview(imageSport)
+        view.addSubview(containerView)
+
+        // Set up constraints for container and image view
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        imageSport.translatesAutoresizingMaskIntoConstraints = false
         
         // Style the text view
         lblDescription.layer.cornerRadius = 10
@@ -176,10 +190,13 @@ class ViewController: UIViewController {
     
     @IBAction func visitWebsiteTapped(_ sender: Any) {
         let event = events[currentEventIndex]
-        if let url = URL(string: event.websiteUrl) {
-            let safariVC = SFSafariViewController(url: url)
-            present(safariVC, animated: true)
+        guard let url = URL(string: event.websiteUrl),
+              UIApplication.shared.canOpenURL(url) else {
+            showError(message: "Invalid website URL")
+            return
         }
+        let safariVC = SFSafariViewController(url: url)
+        present(safariVC, animated: true)
     }
 }
 
