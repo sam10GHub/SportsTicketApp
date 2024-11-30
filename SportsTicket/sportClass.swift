@@ -24,4 +24,8 @@ struct Event {
     let price: Double
     let imageUrl: String
     let websiteUrl: String
+    
+    var formattedPrice: String {
+        return String(format: "$%.2f", price)
+    }
 }
