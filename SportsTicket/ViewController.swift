@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var lblVenue: UILabel!
     @IBOutlet weak var lblDescription: UITextView!
     @IBOutlet weak var lblName: UILabel!
+    @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var imageSport: UIImageView!
     
     private var currentEventIndex = 0
