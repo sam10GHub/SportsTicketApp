@@ -21,14 +21,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var websiteButton: UIButton!
     @IBOutlet weak var venueButton: UIButton!
     
-    private var currentEventIndex = 0
+    internal var currentEventIndex = 0
     private var events: [Event] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Style the buttons
-        let buttons = [buyNowButton, nextEventButton, websiteButton, venueButton]
+        let buttons: [UIButton?] = [buyNowButton, nextEventButton, websiteButton, venueButton]
         buttons.forEach { button in
             button?.layer.cornerRadius = 10
             button?.layer.shadowColor = UIColor.black.cgColor

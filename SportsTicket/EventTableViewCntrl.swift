@@ -87,6 +87,7 @@ class EventTableViewController: UITableViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let detailVC = storyboard.instantiateViewController(withIdentifier: "EventDetailVC") as? ViewController {
             detailVC.currentEventIndex = indexPath.row
+            detailVC.events = self.events
             navigationController?.pushViewController(detailVC, animated: true)
         }
         tableView.deselectRow(at: indexPath, animated: true)
