@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var buyNowButton: UIButton!
     @IBOutlet weak var nextEventButton: UIButton!
     @IBOutlet weak var websiteButton: UIButton!
+    @IBOutlet weak var venueButton: UIButton!
     
     private var currentEventIndex = 0
     private var events: [Event] = []
@@ -27,7 +28,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         // Style the buttons
-        let buttons = [buyNowButton, nextEventButton, websiteButton]
+        let buttons = [buyNowButton, nextEventButton, websiteButton, venueButton]
         buttons.forEach { button in
             button?.layer.cornerRadius = 10
             button?.layer.shadowColor = UIColor.black.cgColor
@@ -197,6 +198,13 @@ class ViewController: UIViewController {
         }
         let safariVC = SFSafariViewController(url: url)
         present(safariVC, animated: true)
+    }
+    
+    @IBAction func venueButtonTapped(_ sender: Any) {
+        let mapVC = VenueMapViewController()
+        mapVC.venue = events[currentEventIndex].venue
+        mapVC.venueName = events[currentEventIndex].name
+        navigationController?.pushViewController(mapVC, animated: true)
     }
 }
 
